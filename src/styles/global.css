@@ -1,0 +1,264 @@
+/* =========================================================
+   New Clean — design tokens
+   Paleta extraída do logotipo: azul-marinho, azul solar,
+   azul-água (gota) e laranja (órbita).
+   ========================================================= */
+:root {
+  --navy-950: #050f2e;
+  --navy-900: #0b1d52;
+  --navy-800: #112a72;
+  --brand: #13308f;
+  --blue: #2563eb;
+  --blue-500: #3b82f6;
+  --sky: #38bdf8;
+  --sky-100: #e0f4fe;
+  --orange: #f7931e;
+  --orange-600: #e57f06;
+  --sun: #ffc23d;
+
+  --ink: #0b1533;
+  --text: #45526e;
+  --muted: #6b7895;
+  --line: #e2e8f3;
+  --bg: #ffffff;
+  --bg-soft: #f3f6fc;
+
+  --grad-sun: linear-gradient(100deg, #ffd166 0%, #f7931e 60%, #f97316 100%);
+  --grad-blue: linear-gradient(135deg, #2563eb 0%, #13308f 55%, #0b1d52 100%);
+
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+
+  --shadow-sm: 0 2px 8px rgba(11, 29, 82, 0.06);
+  --shadow: 0 18px 40px -18px rgba(11, 29, 82, 0.28);
+  --shadow-lg: 0 40px 80px -30px rgba(5, 15, 46, 0.45);
+
+  --container: 1200px;
+  --gutter: 24px;
+  --topbar-h: 38px;
+  --nav-h: 76px;
+
+  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Manrope', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ol,
+ul {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+::selection {
+  background: var(--orange);
+  color: var(--navy-950);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(80px, 10vw, 128px);
+}
+
+/* ---------- Text helpers ---------- */
+.text-gradient {
+  background: var(--grad-sun);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-accent {
+  color: var(--orange-600);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad-sun);
+}
+
+.eyebrow--light,
+.heading--light .eyebrow {
+  color: var(--sky);
+}
+
+/* ---------- Motion ---------- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal--up {
+  transform: translateY(32px);
+}
+
+.reveal--zoom {
+  transform: scale(0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.anim-in {
+  opacity: 0;
+  animation: animIn 1s var(--ease-out) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes animIn {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .anim-in {
+    opacity: 1;
+    transform: none;
+  }
+}
