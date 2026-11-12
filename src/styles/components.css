@@ -9,32 +9,10 @@
   gap: 10px;
 }
 
-.logo-mark {
-  flex-shrink: 0;
-  filter: drop-shadow(0 4px 10px rgba(5, 15, 46, 0.18));
-}
-
-.logo__word {
+.logo__img {
   display: block;
-  color: var(--navy-900);
-  overflow: visible;
-  transition: color 0.3s;
-}
-
-.logo__tag {
-  font-family: 'Michroma', var(--font-display);
-  fill: var(--orange-600);
-  stroke: var(--orange-600);
-  transition: fill 0.3s, stroke 0.3s;
-}
-
-.logo--light .logo__word {
-  color: #fff;
-}
-
-.logo--light .logo__tag {
-  fill: var(--sun);
-  stroke: var(--sun);
+  height: auto;
+  max-width: 100%;
 }
 
 /* ---------- Botões ---------- */
@@ -1109,14 +1087,8 @@
     --nav-h: 68px;
   }
 
-  .logo-mark {
-    width: 38px;
-    height: 38px;
-  }
-
-  .logo__word {
-    width: 150px;
-    height: 22px;
+  .logo__img {
+    width: 224px;
   }
 
   .heading {
