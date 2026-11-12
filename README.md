@@ -9,12 +9,12 @@ Feito com React + Vite.
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # versão de produção em dist/
-npm run deploy     # publica no GitHub Pages (branch gh-pages)
 ```
 
-Site publicado: **https://bessinha0506.github.io/NewClean/**
+## Publicação
 
-Para atualizar o site no ar depois de editar: faça commit/push das alterações e rode `npm run deploy`.
+O site é publicado na **Cloudflare Pages**, ligada a este repositório. Cada push na branch de
+produção gera e publica o site automaticamente (comando de build `npm run build`, pasta `dist`).
 
 ## Seções
 
