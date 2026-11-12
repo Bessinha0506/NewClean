@@ -21,7 +21,6 @@ export default function WhatsAppFloat() {
       aria-label="Fale com a New Clean no WhatsApp"
     >
       <WhatsAppIcon size={28} />
-      <span className="wa-float__label">Orçamento rápido</span>
     </a>
   );
 }

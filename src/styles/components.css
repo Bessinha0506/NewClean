@@ -935,19 +935,18 @@
   right: 24px;
   bottom: 24px;
   z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: grid;
+  place-items: center;
+  width: 62px;
   height: 62px;
-  padding: 0 17px;
-  border-radius: 999px;
+  border-radius: 50%;
   background: #25d366;
   color: #fff;
   box-shadow: 0 14px 30px -10px rgba(37, 211, 102, 0.7);
   opacity: 0;
   transform: translateY(24px) scale(0.9);
   pointer-events: none;
-  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), padding 0.35s var(--ease);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
 .wa-float.is-visible {
@@ -977,23 +976,8 @@
   }
 }
 
-.wa-float__label {
-  max-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 15px;
-  transition: max-width 0.4s var(--ease);
-}
-
-.wa-float:hover .wa-float__label,
-.wa-float:focus-visible .wa-float__label {
-  max-width: 180px;
-}
-
 .wa-float:hover {
-  padding-right: 22px;
+  transform: scale(1.06);
 }
 
 /* =========================================================
@@ -1009,9 +993,22 @@
     display: grid;
   }
 
+  /* Menu aberto: fundo branco sólido e sem backdrop-filter. O filtro transforma o
+     header em referência para filhos "fixed" e o menu ficava com altura zero. */
+  .header.is-open {
+    background: #fff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .mobile-menu {
     position: fixed;
-    inset: var(--nav-h) 0 0 0;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    height: calc(100vh - var(--nav-h));
+    height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 28px;
@@ -1213,7 +1210,7 @@
   .wa-float {
     right: 16px;
     bottom: 16px;
+    width: 58px;
     height: 58px;
-    padding: 0 15px;
   }
 }
