@@ -7,9 +7,10 @@ import Reveal from './ui/Reveal';
 
 const points = [
   'Atendimento direto com o responsável',
-  'Qualificado em NR10 (segurança em eletricidade) e NR35 (trabalho em altura)',
   `Atendemos ${SERVICE_AREA}`,
   'Residências, comércios e propriedades rurais',
+  'Qualificado em NR10 (segurança em eletricidade)',
+  'Qualificado em NR35 (trabalho em altura)',
 ];
 
 export default function About() {
