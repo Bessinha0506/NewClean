@@ -5,7 +5,12 @@ import Button from './ui/Button';
 import Divider from './ui/Divider';
 import Reveal from './ui/Reveal';
 
-const points = ['Atendimento direto com o responsável', `Atendemos ${SERVICE_AREA}`, 'Residências, comércios e propriedades rurais'];
+const points = [
+  'Atendimento direto com o responsável',
+  'Qualificado em NR10 (segurança em eletricidade) e NR35 (trabalho em altura)',
+  `Atendemos ${SERVICE_AREA}`,
+  'Residências, comércios e propriedades rurais',
+];
 
 export default function About() {
   return (
